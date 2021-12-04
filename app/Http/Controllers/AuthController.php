@@ -71,8 +71,6 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-
-        
         $user = User::where('email', $fields['email'])->first();
 
         if (!$user || !Hash::check($fields['password'], $user->password)) {

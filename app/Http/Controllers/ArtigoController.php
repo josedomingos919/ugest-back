@@ -25,15 +25,17 @@ class ArtigoController extends Controller
 
     public function store(Request $req)
     {
-        $newImageName =
-            time() .
-            '-' .
-            $req->art_designacao .
-            '.' .
-            $req->art_imagem->extension();
-        $req->art_imagem->move(public_path('uploads'), $newImageName);
+        $newImageName = '';
 
-        // dd($newImage);
+        if ($req->art_imagem) {
+            $newImageName =
+                time() .
+                '-' .
+                $req->art_designacao .
+                '.' .
+                $req->art_imagem->extension();
+            $req->art_imagem->move(public_path('uploads'), $newImageName);
+        }
 
         try {
             $artigo = new Artigo();

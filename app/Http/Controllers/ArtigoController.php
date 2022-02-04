@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Artigo;
 use Illuminate\Http\Request;
 
@@ -55,7 +56,7 @@ class ArtigoController extends Controller
             }
 
             return ['error' => 'Some error ocurred'];
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return ['error' => $e];
         }
     }
@@ -101,7 +102,7 @@ class ArtigoController extends Controller
             }
 
             return ['error' => 'artigo does not exists'];
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return ['error' => $e];
         }
     }
